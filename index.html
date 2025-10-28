@@ -13,7 +13,6 @@
       <p>Una celebración con el brillo de <strong>Rosé</strong> 💗</p>
       <button id="entrarBtn">✨ Entrar ✨</button>
 
-      <!-- 🎵 Audio oculto -->
       <audio id="musica" loop preload="auto">
         <source src="apt-rose-bruno.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
@@ -38,13 +37,14 @@
 
     <section class="rsvp">
       <h3>Confirma tu asistencia 💌</h3>
-      <form action="https://formsubmit.co/jorge2011jv@hotmail.com" method="POST">
+      
+      <form id="rsvp-form" action="https://formsubmit.co/5add882408bc34a72be0cbffa9f8a516" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <label>Tu nombre:</label>
         <input type="text" name="nombre" required>
 
         <label>¿Asistirás?</label>
-        <select name="asistencia" required>
+        <select id="asistencia-select" name="asistencia" required>
           <option value="">Selecciona una opción</option>
           <option value="Sí asistiré">Sí asistiré 🎉</option>
           <option value="No podré asistir">No podré asistir 😢</option>
@@ -52,7 +52,7 @@
 
         <button type="submit">Enviar confirmación</button>
       </form>
-    </section>
+      </section>
 
     <footer>
       <p>💖 Diseñado por Jorge para Cristel 💖</p>
@@ -63,7 +63,6 @@
 
   <script src="script.js"></script>
 
-  <!-- Script para reproducir música y hacer fade-out de entrada -->
   <script>
     const btn = document.getElementById("entrarBtn");
     const entrada = document.getElementById("entrada");
