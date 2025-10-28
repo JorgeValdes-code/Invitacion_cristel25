@@ -62,3 +62,14 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+document.getElementById("entrarBtn").addEventListener("click", () => {
+  const musica = document.getElementById("musica");
+  musica.play()
+    .then(() => {
+      document.getElementById("entrada").style.display = "none";
+      document.getElementById("contenido").classList.remove("oculto");
+    })
+    .catch(err => {
+      console.log("El navegador bloqueó el autoplay:", err);
+    });
+});
