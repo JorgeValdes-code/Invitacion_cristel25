@@ -1,19 +1,37 @@
-// 🎵 Iniciar música y mostrar contenido
+// 🎵 Referencias a elementos
 const btn = document.getElementById("entrarBtn");
 const musica = document.getElementById("musica");
 const entrada = document.getElementById("entrada");
 const contenido = document.getElementById("contenido");
 
-btn.addEventListener("click", () => {
-  musica.play()
-    .then(() => {
-      entrada.style.display = "none";
-      contenido.classList.remove("oculto");
-    })
-    .catch(err => {
-      console.error("El navegador bloqueó el autoplay:", err);
-      alert("Por favor, activa el sonido e intenta de nuevo");
-    });
+// Configurar el volumen
+musica.volume = 0.7;
+
+// 🎵 Función para intentar reproducir música
+async function reproducirMusica() {
+  try {
+    // Cargar y reproducir el audio
+    musica.load();
+    await musica.play();
+    
+    console.log("✅ Música reproduciéndose correctamente");
+    
+  } catch (error) {
+    console.error("❌ Error al reproducir música:", error);
+    alert("⚠️ No se pudo reproducir la música. Haz clic en el botón de música para activarla.");
+  }
+}
+
+// 🎯 Evento del botón de entrada
+btn.addEventListener("click", async () => {
+  console.log("🔘 Botón 'Entrar' presionado");
+  
+  // Mostrar el contenido
+  entrada.style.display = "none";
+  contenido.classList.remove("oculto");
+  
+  // Intentar reproducir la música
+  await reproducirMusica();
 });
 
 // 🕒 Contador regresivo
@@ -23,11 +41,14 @@ const countdown = document.getElementById("countdown");
 const x = setInterval(function() {
   const now = new Date().getTime();
   const distance = countDownDate - now;
+  
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
   countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  
   if (distance < 0) {
     clearInterval(x);
     countdown.innerHTML = "¡Es el gran día! 🎉";
@@ -70,3 +91,29 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
+// 🎧 Detectar errores de carga del audio
+musica.addEventListener('loadeddata', () => {
+  console.log("✅ Audio cargado correctamente");
+});
+
+musica.addEventListener('error', (e) => {
+  console.error("❌ Error al cargar el audio:", e);
+  console.log("Verifica que el archivo 'apt-rose-bruno.mp3' esté en la raíz del proyecto");
+});
+```
+
+## 📋 Resumen de cambios en JS:
+
+1. ✅ Eliminé el código duplicado
+2. ✅ Mejoré el manejo de errores con `try-catch`
+3. ✅ Añadí logs en consola para diagnosticar problemas
+4. ✅ Añadí eventos para detectar si el audio se carga correctamente
+
+## 🎯 Estructura final de archivos:
+```
+tu-repositorio/
+├── index.html          ← Actualizado (ruta del audio)
+├── style.css           ← Sin cambios
+├── script.js           ← Actualizado (mejor manejo de audio)
+└── apt-rose-bruno.mp3  ← Tu archivo de música
