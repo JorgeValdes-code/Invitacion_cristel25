@@ -10,16 +10,18 @@ body {
 
 /* Pantalla inicial */
 .entrada {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  background: url('fondo-cristel.png') center/cover no-repeat;
-  z-index: 10;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  display: flex;             /* <-- Esto ayuda a centrar */
+  justify-content: center;   /* <-- Esto centra horizontalmente */
+  align-items: center;       /* <-- Esto centra verticalmente (¡el que faltaba!) */
+  text-align: center;
+  color: #fff;
+  background: url('fondo-cristel.png') center/cover no-repeat; /* <-- Esta es tu imagen */
+  z-index: 10;
+}
+
 }
 
 .entrada-contenido {
