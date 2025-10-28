@@ -22,7 +22,7 @@ btn.addEventListener("click", () => {
 });
 
 // 🕒 Contador regresivo
-const countDownDate = new Date("Nov 17, 2025 13:00:00").getTime();
+const countDownDate = new Date("Nov 16, 2025 13:00:00").getTime();
 const countdown = document.getElementById("countdown");
 
 const x = setInterval(() => {
