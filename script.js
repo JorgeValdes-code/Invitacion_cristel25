@@ -101,19 +101,3 @@ musica.addEventListener('error', (e) => {
   console.error("❌ Error al cargar el audio:", e);
   console.log("Verifica que el archivo 'apt-rose-bruno.mp3' esté en la raíz del proyecto");
 });
-```
-
-## 📋 Resumen de cambios en JS:
-
-1. ✅ Eliminé el código duplicado
-2. ✅ Mejoré el manejo de errores con `try-catch`
-3. ✅ Añadí logs en consola para diagnosticar problemas
-4. ✅ Añadí eventos para detectar si el audio se carga correctamente
-
-## 🎯 Estructura final de archivos:
-```
-tu-repositorio/
-├── index.html          ← Actualizado (ruta del audio)
-├── style.css           ← Sin cambios
-├── script.js           ← Actualizado (mejor manejo de audio)
-└── apt-rose-bruno.mp3  ← Tu archivo de música
