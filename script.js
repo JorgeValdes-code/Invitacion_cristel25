@@ -5,26 +5,29 @@ const entrada = document.getElementById("entrada");
 const contenido = document.getElementById("contenido");
 
 btn.addEventListener("click", () => {
-  entrada.style.display = "none";
-  contenido.classList.remove("oculto");
-  musica.play();
+  musica.play()
+    .then(() => {
+      entrada.style.display = "none";
+      contenido.classList.remove("oculto");
+    })
+    .catch(err => {
+      console.error("El navegador bloqueó el autoplay:", err);
+      alert("Por favor, activa el sonido e intenta de nuevo");
+    });
 });
 
 // 🕒 Contador regresivo
-const countDownDate = new Date("Nov 17, 2025 13:00:00").getTime();
+const countDownDate = new Date("Nov 16, 2025 13:00:00").getTime();
 const countdown = document.getElementById("countdown");
 
 const x = setInterval(function() {
   const now = new Date().getTime();
   const distance = countDownDate - now;
-
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
   const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
   countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
   if (distance < 0) {
     clearInterval(x);
     countdown.innerHTML = "¡Es el gran día! 🎉";
@@ -38,7 +41,6 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let lights = [];
-
 for (let i = 0; i < 80; i++) {
   lights.push({
     x: Math.random() * canvas.width,
@@ -62,14 +64,9 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
-document.getElementById("entrarBtn").addEventListener("click", () => {
-  const musica = document.getElementById("musica");
-  musica.play()
-    .then(() => {
-      document.getElementById("entrada").style.display = "none";
-      document.getElementById("contenido").classList.remove("oculto");
-    })
-    .catch(err => {
-      console.log("El navegador bloqueó el autoplay:", err);
-    });
+
+// Ajustar canvas al redimensionar ventana
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
