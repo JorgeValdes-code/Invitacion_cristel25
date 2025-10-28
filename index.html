@@ -11,17 +11,15 @@
     <div class="entrada-contenido">
       <h1>🎂 Cumpleaños #25 de Cristel 🎀</h1>
       <p>Una celebración con el brillo de <strong>Rosé</strong> 💗</p>
-
-      <!-- Botón que activa la música y la invitación -->
       <button id="entrarBtn">✨ Entrar ✨</button>
-
-      <!-- 🎵 Audio oculto (coloca aquí tu archivo mp3 que subiste a GitHub) -->
-      <audio id="musica" loop>
-        <source src="ROSÉ & Bruno Mars - APT. (Official Music Video) [ekr2nIex040].mp3" type="audio/mp3">
-      </audio>
     </div>
   </div>
-
+  
+  <!-- 🎵 Audio único (movido fuera para que esté disponible siempre) -->
+  <audio id="musica" loop>
+    <source src="https://files.catbox.moe/4j3vfh.mp3" type="audio/mpeg">
+  </audio>
+  
   <div id="contenido" class="oculto fade-in">
     <section class="hero">
       <h1>💗 Invitación Especial 💗</h1>
@@ -31,41 +29,30 @@
       <p><strong>Hora:</strong> Entre 1:00 p.m. y 3:00 p.m.</p>
       <p><strong>Lugar:</strong> (Por confirmar)</p>
     </section>
-
     <section class="contador">
       <h3>⏰ Falta para el gran día:</h3>
       <div id="countdown"></div>
     </section>
-
     <section class="rsvp">
       <h3>Confirma tu asistencia 💌</h3>
       <form action="https://formsubmit.co/jorge2011jv@hotmail.com" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <label>Tu nombre:</label>
         <input type="text" name="nombre" required>
-
         <label>¿Asistirás?</label>
         <select name="asistencia" required>
           <option value="">Selecciona una opción</option>
           <option value="Sí asistiré">Sí asistiré 🎉</option>
           <option value="No podré asistir">No podré asistir 😢</option>
         </select>
-
         <button type="submit">Enviar confirmación</button>
       </form>
     </section>
-
     <footer>
       <p>💖 Diseñado por Jorge para Cristel 💖</p>
     </footer>
-
-    <audio id="musica" loop>
-      <source src="https://files.catbox.moe/4j3vfh.mp3" type="audio/mp3">
-    </audio>
   </div>
-
   <canvas id="background"></canvas>
-
   <script src="script.js"></script>
 </body>
 </html>
