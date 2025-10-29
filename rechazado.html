@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmación Recibida</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .contenido-gracias {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      z-index: 2; /* Para que esté sobre el fondo animado */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="background"></canvas>
+  <div class="contenido-gracias">
+    <h1>¡Gracias por tu respuesta! 😢</h1>
+    <p>Entendemos que no puedas asistir. ¡Será para la próxima!</p>
+    <p>Tu confirmación ha sido recibida.</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
