@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Confirmado!</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos para centrar y el botón de descarga */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .contenido-gracias {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      z-index: 2; /* Para que esté sobre el fondo animado */
+    }
+    .btn-descarga {
+      background: linear-gradient(90deg, #ff69b4, #ffb6c1);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 25px;
+      box-shadow: 0 0 20px #ff8ac9;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+    }
+    .btn-descarga:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="background"></canvas>
+
+  <div class="contenido-gracias">
+    <h1>¡Muchas gracias por la confirmación! 💖</h1>
+    <p>Tu asistencia ha sido registrada. ¡Nos vemos en la fiesta!</p>
+    <p>Guarda los detalles de la fiesta descargando tu pase:</p>
+    
+    <a href="detalles-fiesta.png" download="Detalles-Cumple-Cristel.png" class="btn-descarga">
+      Descargar Detalles (Pase)
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
