@@ -73,3 +73,56 @@ function animate() {
   requestAnimationFrame(animate);
 }
 animate();
+// --- CÓDIGO NUEVO PARA REDIRECCIÓN CONDICIONAL ---
+
+// 1. Espera a que todo el contenido de la página cargue
+document.addEventListener("DOMContentLoaded", function() {
+  
+  // 2. Busca el formulario y el menú <select> por sus IDs
+  const formRsvp = document.getElementById("rsvp-form");
+  const selectAsistencia = document.getElementById("asistencia-select");
+
+  // 3. Esto solo se ejecuta si el formulario existe en la página
+  if (formRsvp && selectAsistencia) {
+    
+    // 4. Añade un "oyente" que se activa JUSTO ANTES de enviar el formulario
+    formRsvp.addEventListener("submit", function() {
+      
+      // 5. Decide a qué página redirigir
+      let paginaRedireccion = "";
+      
+      if (selectAsistencia.value === "Sí asistiré") {
+        paginaRedireccion = "confirmado.html";
+      } else {
+        paginaRedireccion = "rechazado.html";
+      }
+
+      // 6. Crea la URL completa (esto es importante para GitHub Pages)
+      // Combina la URL base de tu sitio con el nombre de la página
+      // Esto encuentra la URL base, ej: "https://usuario.github.io/repo/"
+      let baseUrl = window.location.href.split("index.html")[0];
+      if (!baseUrl.endsWith('/')) {
+         // Asegura que la URL base termine con /
+         let path = window.location.pathname.split("index.html")[0];
+         baseUrl = window.location.origin + path;
+      }
+
+      const urlCompleta = baseUrl + paginaRedireccion;
+
+      // 7. Busca si ya existe un campo _next
+      let nextInput = formRsvp.querySelector("input[name='_next']");
+      
+      // 8. Si no existe, lo crea
+      if (!nextInput) {
+        nextInput = document.createElement("input");
+        nextInput.type = "hidden";
+        nextInput.name = "_next";
+        formRsvp.appendChild(nextInput);
+      }
+      
+      // 9. Le pone la URL correcta al campo _next antes de enviar
+      nextInput.value = urlCompleta;
+      
+    });
+  }
+});
